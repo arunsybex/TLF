@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./tree.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="tree" style="width: max-content;">
+        <ul>
+            <li id="1">
+                <a href="#" onclick="createChild(1);">1</a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+<script>
+
+    let counter = [];
+    let nodeCount = 1;
+
+    function createChild(value) {
+        console.log(counter.indexOf(value));
+        if (counter.indexOf(value) == -1) {
+            document.getElementById(value).innerHTML += '<ul><li id='+(nodeCount+1)+'><a href="#" onclick="createChild('+(nodeCount+1)+');">'+(nodeCount+1)+'</a></li><li id='+(nodeCount+2)+'><a href="#" onclick="createChild('+(nodeCount+2)+');">'+(nodeCount+2)+'</a></li><li id='+(nodeCount+3)+'><a href="#" onclick="createChild('+(nodeCount+3)+');">'+(nodeCount+3)+'</a></li><li id='+(nodeCount+4)+'><a href="#" onclick="createChild('+(nodeCount+4)+');">'+(nodeCount+4)+'</a></li></ul>'
+            counter.push(value)
+            nodeCount  += 4
+        }
+        // $("#"+value).add("<p>Arun</p>")
+    }
+</script>
+</html>
